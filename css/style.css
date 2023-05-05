@@ -1,0 +1,8 @@
+.collapse h2{
+    text-transform: uppercase;
+}
+
+.alert i{
+    color: rgb(255, 0, 179);
+    font-size: 25px;
+}
