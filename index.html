@@ -20,8 +20,8 @@
 
 <body>
 
-    <p class="mx-auto pt-4" style="width: 500px;">
-        <a class="btn btn-primary w-auto" data-toggle="collapse" href="#multiCollapse1" role="button"
+    <p class="mx-auto pt-4" style="width: 400px;">
+        <a class="btn btn-primary w-auto " data-toggle="collapse" href="#multiCollapse1" role="button"
             aria-expanded="false" aria-controls="multiCollapse1">Practice 1</a>
         <button class="btn btn-primary w-auto" type="button" data-toggle="collapse" data-target="#multiCollapse2"
             aria-expanded="false" aria-controls="multiCollapse2">Practice 2</button>
@@ -29,8 +29,6 @@
             aria-expanded="false" aria-controls="multiCollapse3">Practice 3</button>
         <button class="btn btn-primary w-auto" type="button" data-toggle="collapse" data-target="#multiCollapse4"
             aria-expanded="false" aria-controls="multiCollapse4">Practice 4</button>
-        <button class="btn btn-primary w-auto" type="button" data-toggle="collapse" data-target="#multiCollapse5"
-            aria-expanded="false" aria-controls="multiCollapse5">Practice 5</button>
     </p>
     <div class="col">
 
@@ -39,44 +37,46 @@
 
                 <h2 class="m-auto pb-3">Quản lý tuyển sinh</h2>
 
-                    <form class="row row-cols-3">
-                        <div class="form-group col">
-                            <input type="number" class="form-control" id="diemchuan" placeholder="Điểm chuẩn">
-                        </div>
+                <form class="row row-cols-3">
+                    <div class="form-group col">
+                        <input type="number" class="form-control" id="diemchuan" placeholder="Điểm chuẩn">
+                    </div>
 
-                        <div class="input-group mb-3 col">
-                            <select class="custom-select" id="Khuvuc">
-                                <option selected>Chọn khu vực</option>
-                                <option id="khuvucA" value="1">A</option>
-                                <option id="khuvucB" value="2">B</option>
-                                <option id="khuvucC" value="3">C</option>
-                            </select>
-                        </div>
+                    <div class="col">
+                        <select class="form-control" id="Khuvuc">
+                            <option>Chọn khu vực</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
 
-                        <div class="input-group mb-3 col">
-                            <select class="custom-select" id="Doituong">
-                                <option selected>Chọn đối tượng </option>
-                                <option id="doituong1" value="1">1</option>
-                                <option id="doituong2" value="2">2</option>
-                                <option id="doituong3" value="3">3</option>
-                            </select>
-                        </div>
+                        </select>
+                    </div>
 
-                        <div class="form-group col">
-                            <input type="number" class="form-control" id="mon1" placeholder="Điểm môn thứ 1">
-                        </div>
+                    <div class="col">
+                        <select class="form-control" id="Doituong">
+                            <option>Chọn đối tượng</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
 
-                        <div class="form-group col">
-                            <input type="number" class="form-control" id="mon2" placeholder="Điểm môn thứ 2">
-                        </div>
+                        </select>
+                    </div>
 
-                        <div class="form-group col">
-                            <input type="number" class="form-control" id="mon3" placeholder="Điểm môn thứ 3">
-                        </div>
+                    <div class="form-group col">
+                        <input type="number" class="form-control" id="mon1" placeholder="Điểm môn thứ 1">
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="number" class="form-control" id="mon2" placeholder="Điểm môn thứ 2">
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="number" class="form-control" id="mon3" placeholder="Điểm môn thứ 3">
+                    </div>
 
 
-                    </form>
-                    <button onclick="main()" type="button" class="btn btn-primary w-10 ">Kết quả</button>
+                </form>
+                <button id="btncalc1" type="button" class="btn btn-primary w-10 ">Kết quả</button>
 
 
                 <div class="alert alert-danger mt-3" role="alert" id="txtNotify1">
@@ -89,26 +89,18 @@
         <div class="collapse multi-collapse " id="multiCollapse2">
             <div class="card card-body">
 
-                <h2 class="m-auto pb-3">Tính giá trị trung bình</h2>
+                <h2 class="m-auto pb-3">Tính tiền điện</h2>
 
                 <form class="w-50 ">
                     <div class="form-group ">
-                        <input type="number" class="form-control" id="Num1" placeholder="Nhập số thứ 1">
+                        <input type="text" class="form-control" id="hoten" placeholder="Nhập họ tên">
                     </div>
                     <div class="form-group ">
-                        <input type="number" class="form-control" id="Num2" placeholder="Nhập số thứ 2">
-                    </div>
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="Num3" placeholder="Nhập số thứ 3">
-                    </div>
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="Num4" placeholder="Nhập số thứ 4">
-                    </div>
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="Num5" placeholder="Nhập số thứ 5">
+                        <input type="number" class="form-control" id="soKW" placeholder="Nhập số kW">
                     </div>
 
-                    <button type="button" class="btn btn-primary" id="btncalc2">Tính trung bình </button>
+
+                    <button type="button" class="btn btn-primary" id="btncalc2">Tính tiền điện </button>
                 </form>
 
                 <div class="alert alert-danger mt-3" role="alert" id="txtNotify2">
@@ -121,16 +113,27 @@
         <div class="collapse multi-collapse " id="multiCollapse3">
             <div class="card card-body">
 
-                <h2 class="m-auto pb-3">Quy đổi tiền</h2>
+                <h2 class="m-auto pb-3">Tính thuế thu nhập cá nhân</h2>
 
-                <form class="w-50 ">
 
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="usd" placeholder="Nhập số tiền USD">
+
+                <form class="row row-cols-3">
+
+                    <div class="form-group col ">
+                        <input type="text" class="form-control" id="name" placeholder="Nhập họ tên">
                     </div>
 
-                    <button type="button" class="btn btn-primary" id="btncalc3">Quy đổi tiền</button>
+                    <div class="form-group col ">
+                        <input type="number" class="form-control" id="sum" placeholder="Tổng thu nhập năm">
+                    </div>
+
+                    <div class="form-group col ">
+                        <input type="number" class="form-control" id="numPeo" placeholder="Số người phụ thuộc">
+                    </div>
+
                 </form>
+
+                <button type="button" class="btn btn-primary" id="btncalc3">Tính tiền thuế</button>
 
                 <div class="alert alert-danger mt-3" role="alert" id="txtNotify3">
                     <i class="fa-solid fa-share"></i>
@@ -142,20 +145,30 @@
         <div class="collapse multi-collapse " id="multiCollapse4">
             <div class="card card-body">
 
-                <h2 class="m-auto pb-3">Tính diện tích, chu vi hình chữ nhật</h2>
+                <h2 class="m-auto pb-3">Tính tiền cáp</h2>
 
-                <form class="w-50 ">
+                <form class="row row-cols-3">
 
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="dai" placeholder="Nhập chiều dài">
+                    <div class="col">
+                        <select class="form-control" id="Custumer">
+                            <option>Chọn loại khách hàng</option>
+                            <option id="dan">Nhà dân</option>
+                            <option id="business">Doanh nghiệp</option>
+
+                        </select>
                     </div>
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="rong" placeholder="Nhập chiều rộng">
+
+                    <div class="form-group col ">
+                        <input type="text" class="form-control" id="code" placeholder="Nhập mã khách hàng">
                     </div>
 
-                    <button type="button" class="btn btn-primary" id="btncalc4">Tính</button>
+                    <div class="form-group col ">
+                        <input type="number" class="form-control" id="numChan" placeholder="Số kênh cao cấp">
+                    </div>
+
                 </form>
 
+                <button type="button" class="btn btn-primary" id="btncalc4">Tính tiền cáp</button>
                 <div class="alert alert-danger mt-3" role="alert" id="txtNotify4">
                     <i class="fa-solid fa-share"></i>
                 </div>
@@ -163,27 +176,6 @@
             </div>
         </div>
 
-        <div class="collapse multi-collapse " id="multiCollapse5">
-            <div class="card card-body">
-
-                <h2 class="m-auto pb-3">Tính tổng 2 ký số</h2>
-
-                <form class="w-50 ">
-
-                    <div class="form-group ">
-                        <input type="number" class="form-control" id="Number2" placeholder="Nhập số có 2 chữ số">
-                    </div>
-
-
-                    <button type="button" class="btn btn-primary" id="btncalc5">Tính tổng</button>
-                </form>
-
-                <div class="alert alert-danger mt-3" role="alert" id="txtNotify5">
-                    <i class="fa-solid fa-share"></i>
-                </div>
-
-            </div>
-        </div>
 
 
     </div>
@@ -200,9 +192,9 @@
 
 
     <script src="./js/prac1.js"></script>
-    <!-- <script src="./js/prac2.js"></script>
+    <script src="./js/prac2.js"></script>
     <script src="./js/prac3.js"></script>
-    <script src="./js/prac4.js"></script> -->
+    <script src="./js/prac4.js"></script>
 </body>
 
 </html>

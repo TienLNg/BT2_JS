@@ -1,32 +1,81 @@
-/**
- * B1: input
- * tienUsd
- * 
- * B2:
- * B1: tạo hàm, gắn hàm vào button
- * B2: trong hàm, tạo công thức tính
- * + tienVNĐ = tienUsd * 23500
- * 
- * 
- * B3: output
- * tienVNĐ (đổi ra tiền VN)
- * 
- */
 
 
-function changeMoney(){
+// hàm chính 
+function calcThue() {
 
-    var tienUsd = document.getElementById("usd").value;
+    var hoten = document.getElementById("name").value;
+
+    var hoTen = goiTen(hoten);
+    console.log(hoTen)
+
+    var tongthunhap = document.getElementById("sum").value;
+    var nguoiphuthuoc = document.getElementById("numPeo").value;
+
+    var total = bangthue(calcChiuthue(tongthunhap, nguoiphuthuoc));
+
+    console.log(total);
     
 
-    // console.log("tienUsd ");
 
-    var tienVNĐ = tienUsd * 23500;
 
-    // console.log("tienVNĐ");
 
-    document.getElementById("txtNotify3").innerHTML = "Tiền VN = " + tienVNĐ.toLocaleString() + " VNĐ"
+    document.getElementById("txtNotify3").innerHTML = "Họ Tên: " + hoTen + ", Tiền thuế thu nhập cá nhân: " + total.toLocaleString() + " VNĐ"
 
 }
 
-document.getElementById("btncalc3").onclick = changeMoney;
+//hàm gọi tên
+function goiTen(ten) {
+    if (ten == "") {
+       
+       alert("Chưa nhập tên kìa!!!");
+       return ten;
+       
+    } else {
+        var ten ="";
+        return "";
+    }
+}
+
+//hàm tính thu nhập chịu thuế
+function calcChiuthue(thunhap, phuthuoc) {
+    var totalCT = 0;
+    totalCT = thunhap - 4e+6 - phuthuoc * 1.6e+6;
+    console.log(totalCT);
+    return totalCT;
+}
+
+//hàm tính thuế
+function bangthue(CT) {
+    if (CT <= 60e+6) {
+        console.log("chịu thuế 5%")
+        return CT * 0.05;
+
+    } else if (60e+6 < CT <= 120e+6) {
+        console.log("chịu thuế 10%")
+        return (CT * 0.05) + (CT - 60e+6) * 0.1; //112.8 * 0,05 + 52.8 * 0,1 6140 + 
+
+    } else if (120e+6 < CT <= 210e+6) {
+        console.log("chịu thuế 15%")
+        return (CT * 0.05) + (CT - 60e+6) * 0.1 + (CT - 60e+6) * 0.15;
+
+    } else if (210e+6 < CT <= 384e+6) {
+        console.log("chịu thuế 20%")
+        return (60e+6 * 0.05) + (CT - 60e+6) * 0.2;
+
+    } else if (384e+6 < CT <= 624e+6) {
+        console.log("chịu thuế 25%")
+        return (CT * 0.05) + (CT - 60e+6) * 0.1 + (CT - 60e+6) * 0.15 + (CT - 60e+6) * 0.2 + (CT - 60e+6) * 0.25;
+
+    } else if (624e+6 < CT <= 960e+6) {
+        console.log("chịu thuế 30%")
+        return (60e+6 * 0.05) + (CT - 60e+6) * 0.3;
+
+    } else if (960e+6 < CT) {
+        console.log("chịu thuế 35%")
+        return (60e+6 * 0.05) + (CT - 60e+6) * 0.35;
+
+    } else {
+        return "";
+    }
+}
+document.getElementById("btncalc3").onclick = calcThue;

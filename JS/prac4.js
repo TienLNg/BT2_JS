@@ -1,35 +1,42 @@
-/**
- * B1: input
- * dai, rong
- * 
- * B2:
- * B1: tạo hàm, gắn hàm vào button
- * B2: trong hàm, tạo công thức tính
- * + dientich = dai * rong
- * + chuvi = ( dai + rong )*2
- * 
- * 
- * B3: output
- * dientich, chuvi (của hình chữ nhật)
- * 
- */
 
+const PHIHĐ_DAN = 4.5;
+const phiCB_DAN = 20.5;
+const phiCC_DAN = 7.5;
 
-function calcHCN(){
+const PHIHĐ_DN = 15;
+const phiCB_DN = 75;
+const phiCC_DN = 50;
 
-    var dai = parseInt(document.getElementById("dai").value); 
-    var rong = parseInt(document.getElementById("rong").value); 
+function calcCap(){
+
+    var nhadan = document.getElementById("dan").value; 
+    var doanhnghiep = document.getElementById("business").value; 
     
+    var codekhach = document.getElementById("code").value; 
+    var kenhcaocap = document.getElementById("numChan").value;
+    
+    var capnhadan = 0;
+    var capnhadan = calcCBdan(PHIHĐ_DAN,phiCB_DAN );
+    console.log(capnhadan);
 
-    // console.log("dai, rong ");
+    var capdoanhnghiep = phiHĐ + phiCoban;
+    console.log(capdoanhnghiep);
 
-    var dientich = dai * rong;
-    var chuvi = ( dai + rong ) * 2;
-
-    // console.log("dientich, chuvi");
-
-    document.getElementById("txtNotify4").innerHTML = "Diện tích = " + dientich + ", Chu vi = " + chuvi;
+    // document.getElementById("txtNotify4").innerHTML = "Diện tích = " + dientich + ", Chu vi = " + chuvi;
 
 }
 
-document.getElementById("btncalc4").onclick = calcHCN;
+//ham tính phí cơ bản nhà dân 
+function calcCBdan(phiCB, phiHĐ, DVCB) {
+    var phiCB = 0;
+    phiCB = phiHĐ + DVCB;
+    console.log(phiCB);
+    return phiCB;
+}
+
+//ham tính phí cơ bản doanh nghiệp
+function calcCBdn(params) {
+    
+}
+
+document.getElementById("btncalc4").onclick = calcCap;
