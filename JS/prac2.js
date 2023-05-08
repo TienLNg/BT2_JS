@@ -13,27 +13,35 @@ function main() {
 
     var HOTEN = document.getElementById("hoten").value;
     console.log(HOTEN);
+
+    if (goiTen(HOTEN)) {
+        HOTEN = `Họ Tên: ${HOTEN} , `
+    } else {
+        HOTEN = ""
+    }
+
+
     var soKW = Number(document.getElementById("soKW").value);
 
-    var TEN = hoTen(HOTEN);
+  
     var total = "";
     total = calcSokW(soKW, KW50_DAU, KW50_KE, KW100_KE, KW150_KE, CON_LAI);
     console.log(total);
 
 
-    document.getElementById("txtNotify2").innerHTML = "Họ tên: " + TEN + ", " + "Tiền điện: " + total.toLocaleString() + " VNĐ";
+    document.getElementById("txtNotify2").innerHTML = `${HOTEN} Tiền điện: ${total.toLocaleString()}VND`;
 
 }
 // hàm gọi tên
-function hoTen(Hoten) {
-    if (Hoten) {
-        return "ten nguoi dung";
-    } else {
-        alert("Chưa nhập tên kìa fen!!!")
-        return "";
-    }
-    
+function goiTen(ten) {
+    if (ten == "") {
 
+        alert("Chưa nhập tên kìa!!!");
+        return false;
+
+    }
+
+    return true;
 }
 // hàm tính số điện
 function calcSokW(sokW, gia_dau, gia100, gia100_200, gia200_350, giatren_350) {

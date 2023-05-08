@@ -7,7 +7,7 @@ const DT_1 = 2.5;
 const DT_2 = 1.5;
 const DT_3 = 1;
 
-document.getElementById("btncalc1").onclick = calcUT
+document.getElementById("btncalc1").onclick = main
 function main(){
 
     var diemchuan = document.getElementById("diemchuan").value;
@@ -23,29 +23,49 @@ function main(){
     var doituong = document.getElementById("Doituong").value;
     
 
-    var totalUT = 0;
-    // var totalUT = khuvuc(KV_A,KV_B,KV_C) + doituong(DT_1,DT_2,DT_3);
-    // console.log(totalUT);
-    
+    var total = 0;
+    total = calcUT (khuvuc, doituong, diemmon1, diemmon2, diemmon3);
+
+    console.log(total);
+   
 
 
 
     // document.getElementById("txtNotify1").innerHTML = "Tổng: " + total;
 
 }
-//điểm ưu tiên
-function calcUT(khuvuc,doituong) {
-    var totalUT = khuvuc(KV_A,KV_B,KV_C) + doituong(DT_1,DT_2,DT_3);
-    
 
-    console.log(totalUT);
+// 
+function goiDiem(diemliet) {
+    if (diemliet == "0 ") {
+       
+       return false;
+       
+    } 
+
+    return true;
 }
 
 
+//điểm ưu tiên
+function calcUT(kv,dt, đm1, đm2, đm3) {
+    var totalUT = kv + dt + đm1 + đm2 + đm3;
+    
 
-// function calcSum3mon(diemmon1,diemmon2,diemmon3) {
-//     var total3mon = 0
-//     total3mon = diemmon1 + diemmon2 + diemmon3 ;
+    console.log(totalUT);
+    return totalUT;
+}
 
-//     return total3mon;
-// }
+// điểm ko ưu tiên
+function calcKUT(đm1,đm2,đm3) {
+    var totalKUT = đm1 + đm2 + đm3
+}
+//so sánh điểm chuẩn
+function calcChuan(đc, đt) {
+    if (đt <= đc) {
+        console.log("Rớt");
+        return 
+    } else {
+        
+    }
+}

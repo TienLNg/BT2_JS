@@ -5,8 +5,12 @@ function calcThue() {
 
     var hoten = document.getElementById("name").value;
 
-    var hoTen = goiTen(hoten);
-    console.log(hoTen)
+    if(goiTen(hoten)){
+        hoten = `Họ Tên: ${hoten} , `
+    }else{
+        hoten = ""
+    }
+   
 
     var tongthunhap = document.getElementById("sum").value;
     var nguoiphuthuoc = document.getElementById("numPeo").value;
@@ -17,9 +21,7 @@ function calcThue() {
     
 
 
-
-
-    document.getElementById("txtNotify3").innerHTML = "Họ Tên: " + hoTen + ", Tiền thuế thu nhập cá nhân: " + total.toLocaleString() + " VNĐ"
+    document.getElementById("txtNotify3").innerHTML = `${hoten} Tiền thuế thu nhập cá nhân: ${total.toLocaleString() }VND`
 
 }
 
@@ -28,12 +30,11 @@ function goiTen(ten) {
     if (ten == "") {
        
        alert("Chưa nhập tên kìa!!!");
-       return ten;
+       return false;
        
-    } else {
-        var ten ="";
-        return "";
-    }
+    } 
+
+    return true;
 }
 
 //hàm tính thu nhập chịu thuế
@@ -50,23 +51,23 @@ function bangthue(CT) {
         console.log("chịu thuế 5%")
         return CT * 0.05;
 
-    } else if (60e+6 < CT <= 120e+6) {
+    } else if (60e+6 < CT  && CT<= 120e+6) {
         console.log("chịu thuế 10%")
         return (CT * 0.05) + (CT - 60e+6) * 0.1; //112.8 * 0,05 + 52.8 * 0,1 6140 + 
 
-    } else if (120e+6 < CT <= 210e+6) {
+    } else if (120e+6 < CT && CT <= 210e+6) {
         console.log("chịu thuế 15%")
         return (CT * 0.05) + (CT - 60e+6) * 0.1 + (CT - 60e+6) * 0.15;
 
-    } else if (210e+6 < CT <= 384e+6) {
+    } else if (210e+6 < CT && CT <= 384e+6) {
         console.log("chịu thuế 20%")
         return (60e+6 * 0.05) + (CT - 60e+6) * 0.2;
 
-    } else if (384e+6 < CT <= 624e+6) {
+    } else if (384e+6 < CT && CT <= 624e+6) {
         console.log("chịu thuế 25%")
         return (CT * 0.05) + (CT - 60e+6) * 0.1 + (CT - 60e+6) * 0.15 + (CT - 60e+6) * 0.2 + (CT - 60e+6) * 0.25;
 
-    } else if (624e+6 < CT <= 960e+6) {
+    } else if (624e+6 < CT && CT <= 960e+6) {
         console.log("chịu thuế 30%")
         return (60e+6 * 0.05) + (CT - 60e+6) * 0.3;
 
